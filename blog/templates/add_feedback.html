@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Добавить отзыв</h1>
+
+<form method="POST" action="/feedback/thanks/">
+    {% csrf_token %}
+    <div style="padding-top:25px">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" maxlength="255" style="margin-left:10px" required>
+    </div>
+    
+    <div style="padding-top:25px">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" style="margin-left:10px" required>
+    </div>
+    
+    <div style="padding-top:25px; padding-bottom:25px;">
+        <label for="text">Отзыв:</label>
+        <textarea id="text" name="text" rows="4" cols="50" style="margin-left:10px" required></textarea>
+    </div>
+    <button type="submit">Добавить</button>
+    <a href="{% url 'feedback_list' %}" class="button">Вернуться к списку отзывов</a>
+</form>
+
+{% endblock %}
